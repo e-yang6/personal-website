@@ -1,11 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { ProfileHeader } from "@/components/ProfileHeader";
+import { Navigation } from "@/components/Navigation";
+import { AboutSection } from "@/components/AboutSection";
+import { ProjectsSection } from "@/components/ProjectsSection";
 
 const Index = () => {
+  const [activeSection, setActiveSection] = useState("about");
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="max-w-3xl mx-auto px-6 py-12">
+        <ProfileHeader
+          name="Ethan Yang"
+          title="Bachelors of Applied Science in Computer Engineering"
+          subtitle="University of Toronto"
+        />
+        
+        <Navigation 
+          activeSection={activeSection}
+          onSectionChange={setActiveSection}
+        />
+
+        <div className="animate-in fade-in duration-500">
+          {activeSection === "about" && <AboutSection />}
+          {activeSection === "projects" && <ProjectsSection />}
+        </div>
       </div>
     </div>
   );
