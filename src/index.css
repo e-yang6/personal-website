@@ -48,6 +48,46 @@ All colors MUST be HSL.
     --sidebar-ring: 0 0% 98%;
   }
 
+  /* Light Theme */
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 3.9%;
+    --sidebar-primary: 0 0% 9%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 96.1%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 89.8%;
+    --sidebar-ring: 0 0% 3.9%;
+  }
+
+  /* Dark Theme */
   .dark {
     --background: 0 0% 7%;
     --foreground: 0 0% 98%;
@@ -85,6 +125,114 @@ All colors MUST be HSL.
     --sidebar-border: 0 0% 20%;
     --sidebar-ring: 0 0% 98%;
   }
+
+  /* Love Theme (Dark background with pink accents + inverted Spline) */
+  .theme-love {
+    --background: 0 0% 7%;
+    --foreground: 330 60% 85%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 330 60% 85%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 330 60% 85%;
+
+    --primary: 330 75% 65%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 330 30% 17%;
+    --secondary-foreground: 330 75% 85%;
+
+    --muted: 330 30% 17%;
+    --muted-foreground: 330 40% 70%;
+
+    --accent: 330 40% 25%;
+    --accent-foreground: 330 75% 85%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 330 60% 85%;
+
+    --border: 330 30% 20%;
+    --input: 330 30% 20%;
+    --ring: 330 75% 65%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 330 60% 85%;
+    --sidebar-primary: 330 75% 65%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 330 30% 17%;
+    --sidebar-accent-foreground: 330 75% 85%;
+    --sidebar-border: 330 30% 20%;
+    --sidebar-ring: 330 75% 65%;
+  }
+
+  /* Secret Goon Theme - Slightly lighter than dark mode with white Comic Sans */
+  .theme-goon {
+    --background: 0 0% 12%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 14%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 12%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 80%;
+
+    --accent: 0 0% 24%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 0 0% 100%;
+    --sidebar-background: 0 0% 14%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 12%;
+    --sidebar-accent: 0 0% 20%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 24%;
+    --sidebar-ring: 0 0% 100%;
+  }
+
+  /* Apply Comic Sans to Goon theme */
+  .theme-goon * {
+    font-family: "Comic Sans MS", "Comic Sans", cursive !important;
+  }
+
+  /* Override Comic Sans for theme switcher popover - use normal font */
+  .theme-goon [data-radix-popover-content],
+  .theme-goon [data-radix-popover-content] button,
+  .theme-goon [data-radix-popover-content] div,
+  .theme-goon [data-radix-popover-content] span:not(.goon-theme-text) {
+    font-family: ui-sans-serif, system-ui, sans-serif !important;
+  }
+  
+  /* ALWAYS use Comic Sans for "Goon" text in dropdown - must work in all themes with maximum specificity */
+  .goon-theme-text,
+  [data-radix-popover-content] .goon-theme-text,
+  .theme-goon [data-radix-popover-content] .goon-theme-text,
+  .theme-light [data-radix-popover-content] .goon-theme-text,
+  .theme-dark [data-radix-popover-content] .goon-theme-text,
+  .theme-love [data-radix-popover-content] .goon-theme-text,
+  html .goon-theme-text,
+  body .goon-theme-text {
+    font-family: "Comic Sans MS", "Comic Sans", cursive !important;
+  }
+}
+
+/* Force Comic Sans for goon text outside of @layer for higher priority */
+.goon-theme-text {
+  font-family: "Comic Sans MS", "Comic Sans", cursive !important;
 }
 
 @layer base {
@@ -92,7 +240,47 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html, body {
+    @apply text-foreground;
+    background: transparent;
+    transition: background-color 0.6s ease, color 0.6s ease;
+  }
+  
+  #root {
+    background: transparent;
+    transition: background-color 0.6s ease;
+  }
+
+  /* Smooth transitions for all color properties */
+  body,
+  body * {
+    transition: 
+      background-color 0.6s ease,
+      color 0.6s ease,
+      border-color 0.6s ease,
+      fill 0.6s ease,
+      stroke 0.6s ease;
+  }
+
+  /* Ensure theme classes are applied to html element */
+  html.theme-goon {
+    color-scheme: dark;
+  }
+
+  /* Invert Spline scene colors in light mode */
+  html.light spline-viewer {
+    filter: invert(1);
+    transition: filter 0.6s ease;
+  }
+
+  /* Add pink tint to Spline background in love theme */
+  html.theme-love spline-viewer {
+    filter: hue-rotate(320deg) saturate(1.8) brightness(0.95);
+    transition: filter 0.6s ease;
+  }
+
+  /* Smooth filter transitions for Spline viewer */
+  spline-viewer {
+    transition: filter 0.6s ease;
   }
 }

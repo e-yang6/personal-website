@@ -11,46 +11,45 @@ interface Project {
 export const ProjectsSection = () => {
   const projects: Project[] = [
     {
-      title: "Portfolio Website",
-      description: "Personal portfolio showcasing projects and experience. Built with React and modern web technologies.",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-      githubUrl: "#",
+      title: "Stop! Don't Go On",
+      description: "GoOnHacks 2025 finalist. Computer vision accountability app that detects bad habits and intervenes with screen alerts, countdown timers, and math challenges. Includes optional Arduino hardware integration with servo-controlled camera tracking and water spray deterrent.",
+      technologies: ["React", "TypeScript", "Python", "Flask", "OpenCV"],
+      githubUrl: "https://github.com/e-yang6/stop-dont-go-on",
     },
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with payment integration and real-time inventory management.",
-      technologies: ["Next.js", "Node.js", "PostgreSQL", "Stripe"],
-      githubUrl: "#",
-      liveUrl: "#",
+      title: "binder.",
+      description: "Tinder-inspired marketplace browser for Kijiji with swipe-based interface, Python scraper, and AI-powered price evaluation using Gemini API.",
+      technologies: ["TypeScript", "React", "Tailwind CSS", "Python", "Gemini API"],
+      githubUrl: "https://github.com/e-yang6/binder",
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates and team collaboration features.",
-      technologies: ["React", "Firebase", "Material-UI", "WebSockets"],
-      githubUrl: "#",
+      title: "Stock Price Simulation and Risk Analysis",
+      description: "Monte Carlo simulations to model Geometric Brownian Motion and forecast stock price paths with visualization of outputs and return distributions.",
+      technologies: ["C++", "Python", "NumPy", "Matplotlib"],
+      githubUrl: "https://github.com/e-yang6/MonteCarloSimulation",
     },
   ];
 
   return (
     <div className="space-y-8">
-      <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-        <span>◆</span> Building:
-      </h2>
-      <div className="space-y-6">
-        {projects.map((project, index) => (
-          <div key={index} className="border-l-2 border-border pl-4 space-y-2">
-            <div className="flex items-start gap-2 flex-wrap">
-              <p className="text-foreground flex-1">
-                <span className="text-muted-foreground">→</span>{" "}
-                <span className="font-semibold">{project.title}</span> → {project.description}
-              </p>
-              <div className="flex gap-2">
+      <div>
+        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+          <span>◆</span> Projects:
+        </h2>
+        <div className="space-y-4">
+          {projects.map((project, index) => (
+            <div key={index} className="border-l-2 border-border pl-4 space-y-2">
+              <div className="flex items-start gap-2">
+                <p className="text-foreground flex-1">
+                  <span className="font-semibold">{project.title}</span>: {project.description}
+                </p>
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View ${project.title} on GitHub`}
                   >
                     <Github className="w-4 h-4" />
                   </a>
@@ -58,20 +57,21 @@ export const ProjectsSection = () => {
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`View ${project.title} live site`}
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 )}
               </div>
+              <p className="text-sm text-muted-foreground ml-4">
+                • {project.technologies.join(", ")}
+              </p>
             </div>
-            <p className="text-sm text-muted-foreground ml-4">
-              • {project.technologies.join(", ")}
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

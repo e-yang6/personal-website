@@ -1,22 +1,10 @@
-# Welcome to your Lovable project
+# Personal Portfolio Website
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/d6e2bea5-35c3-4310-9e15-0f5e087627ab
+A personal portfolio website built with modern web technologies.
 
 ## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/d6e2bea5-35c3-4310-9e15-0f5e087627ab) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
@@ -62,12 +50,19 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/d6e2bea5-35c3-4310-9e15-0f5e087627ab) and click on Share -> Publish.
+You can deploy this project to any static hosting service such as:
 
-## Can I connect a custom domain to my Lovable project?
+- Vercel
+- Netlify
+- GitHub Pages
+- Cloudflare Pages
+- AWS S3 + CloudFront
 
-Yes, you can!
+For most platforms, you can simply:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder to your hosting service
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Can I connect a custom domain to my project?
+
+Yes, you can! Most hosting services allow you to connect a custom domain. Please refer to your hosting provider's documentation for specific instructions.

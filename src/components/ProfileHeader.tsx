@@ -16,7 +16,7 @@ export const ProfileHeader = ({ name, title, subtitle, imageUrl }: ProfileHeader
   return (
     <div className="flex flex-col items-center gap-4 mb-12">
       <Avatar className="w-24 h-24 border-2 border-border">
-        <AvatarImage src={imageUrl} alt={name} />
+        {imageUrl && <AvatarImage src={imageUrl} alt={name} />}
         <AvatarFallback className="bg-secondary text-2xl">{initials}</AvatarFallback>
       </Avatar>
       <div className="text-center">
@@ -25,7 +25,7 @@ export const ProfileHeader = ({ name, title, subtitle, imageUrl }: ProfileHeader
           {name}
         </h1>
         <p className="text-muted-foreground text-sm">
-          → {title}
+          {title}
         </p>
         <p className="text-muted-foreground text-xs mt-1">{subtitle}</p>
       </div>

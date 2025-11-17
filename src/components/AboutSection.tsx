@@ -2,19 +2,19 @@ export const AboutSection = () => {
   const highlights = [
     {
       title: "Computer Engineering Student",
-      description: "Bachelors of Applied Science at University of Toronto. Building strong foundations in hardware and software systems.",
+      description: "Bachelor of Applied Science at University of Toronto. Building foundations in hardware and software systems.",
     },
     {
-      title: "Full-Stack Developer",
-      description: "Experience with modern web technologies including React, TypeScript, Node.js, and cloud platforms.",
+      title: "Web Developer",
+      description: "Working with modern web technologies including React, TypeScript, Python, and exploring full-stack development.",
     },
     {
       title: "Problem Solver",
-      description: "Passionate about creating elegant solutions to complex problems through clean code and innovative thinking.",
+      description: "Focused on creating clean, maintainable solutions to technical challenges through thoughtful code design.",
     },
     {
       title: "Continuous Learner",
-      description: "Always exploring new technologies and methodologies to stay at the forefront of engineering innovation.",
+      description: "Always exploring new technologies and approaches to stay current with software development practices.",
     },
   ];
 
@@ -28,8 +28,7 @@ export const AboutSection = () => {
           {highlights.map((item, index) => (
             <div key={index} className="border-l-2 border-border pl-4">
               <p className="text-foreground">
-                <span className="text-muted-foreground">→</span>{" "}
-                <span className="font-semibold">{item.title}</span> → {item.description}
+                <span className="font-semibold">{item.title}</span>: {item.description}
               </p>
             </div>
           ))}
