@@ -107,6 +107,11 @@ const Index = () => {
             <ReachOutSection />
             <ContactSection />
           </div>
+          
+          {/* Footer Credit */}
+          <div className="mt-12 pt-6 border-t border-border/30 text-center text-xs text-muted-foreground/70">
+            <p>Favicon by <a href="https://jeremyliu.vercel.app" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/80 hover:text-muted-foreground hover:underline transition-colors">Jeremy Liu</a></p>
+          </div>
         </div>
       </div>
     </div>
