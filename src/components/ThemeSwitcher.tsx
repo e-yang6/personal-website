@@ -7,6 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const baseThemes = [
   { name: "Dark", value: "dark", color: "bg-gray-800" },
@@ -131,15 +132,27 @@ export const ThemeSwitcher = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className="relative"
-          onClick={handleButtonClick}
-        >
-          <Palette className="h-4 w-4" />
-          <span className="sr-only">Change theme</span>
-        </Button>
+        <div className="relative">
+          <div className="relative rounded-lg border-[0.75px] border-border p-1">
+            <GlowingEffect
+              spread={30}
+              glow={true}
+              disabled={false}
+              proximity={80}
+              inactiveZone={0.2}
+              borderWidth={3}
+            />
+            <Button
+              variant="outline"
+              size="icon"
+              className="relative z-10 rounded-lg border-[0.75px] border-border bg-background"
+              onClick={handleButtonClick}
+            >
+              <Palette className="h-4 w-4" />
+              <span className="sr-only">Change theme</span>
+            </Button>
+          </div>
+        </div>
       </PopoverTrigger>
       <PopoverContent className="w-56 p-2 [&_*]:!font-sans" align="end" style={{ fontFamily: 'ui-sans-serif, system-ui, sans-serif' }}>
         <div className="space-y-2">

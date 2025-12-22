@@ -1,8 +1,10 @@
+import { ArrowRight } from "lucide-react";
+
 export const ReachOutSection = () => {
   const reasons = [
     {
       title: "Are looking for a developer",
-      description: "I'm open to internships, co-op positions, and opportunities in software engineering and computer engineering.",
+      description: "I'm open to internships, co-op positions, and opportunities in Software Engineering, Product Management, Finance, and Full-Stack Development",
     },
     {
       title: "Are interested in collaborating",
@@ -21,15 +23,17 @@ export const ReachOutSection = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
+        <h2 className="text-xl font-semibold mb-8 flex items-center gap-2">
           <span>◆</span> Please reach out if you:
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-5">
           {reasons.map((item, index) => (
-            <div key={index} className="border-l-2 border-border pl-4">
-              <p className="text-foreground">
-                <span className="font-semibold">{item.title}</span>: {item.description}
-              </p>
+            <div key={index} className="flex gap-4 group">
+              <ArrowRight className="w-4 h-4 text-foreground mt-0.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+              <div className="flex-1">
+                <h3 className="font-semibold text-foreground mb-2 text-base">{item.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
             </div>
           ))}
         </div>
