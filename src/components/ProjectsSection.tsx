@@ -74,10 +74,10 @@ export const ProjectsSection = () => {
                           </a>
                         )}
                       </div>
-                      <p className="font-sans text-sm leading-[1.125rem] md:text-base md:leading-[1.375rem] text-muted-foreground">
+                      <p className="font-sans text-base leading-[1.6] md:text-[15px] md:leading-[1.7] text-muted-foreground">
                         {project.description}
                       </p>
-                      <p className="text-xs text-muted-foreground/70">
+                      <p className="text-sm text-muted-foreground/75">
                         {project.technologies.join(" • ")}
                       </p>
                     </div>

@@ -24,7 +24,7 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted-foreground: 0 0% 70%;
 
     --accent: 0 0% 20%;
     --accent-foreground: 0 0% 98%;
@@ -105,7 +105,7 @@ All colors MUST be HSL.
     --secondary-foreground: 0 0% 98%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 60%;
+    --muted-foreground: 0 0% 70%;
 
     --accent: 0 0% 20%;
     --accent-foreground: 0 0% 98%;
@@ -244,6 +244,9 @@ All colors MUST be HSL.
     @apply text-foreground;
     background: transparent;
     transition: background-color 0.6s ease, color 0.6s ease;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   #root {

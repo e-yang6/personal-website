@@ -35,7 +35,7 @@ export const ContactSection = () => {
           <span>◆</span> Contact:
         </h2>
         <div className="space-y-6">
-          <p className="text-foreground leading-relaxed">
+          <p className="text-base md:text-[15px] text-foreground leading-[1.7] md:leading-[1.75]">
             Seeking Summer 2026 opportunities in Software Engineering, Product Management, Finance, and Full-Stack Development.
           </p>
           <div className="flex flex-wrap gap-3">

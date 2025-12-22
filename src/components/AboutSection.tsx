@@ -33,10 +33,10 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {highlights.map((item, index) => (
             <div key={index} className="flex gap-4 group">
-              <ArrowRight className="w-4 h-4 text-foreground mt-0.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-foreground mt-1.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
               <div className="flex-1">
-                <h3 className="font-semibold text-foreground mb-2 text-base">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                <h3 className="font-semibold text-foreground mb-2.5 text-base md:text-lg">{item.title}</h3>
+                <p className="text-base md:text-[15px] text-muted-foreground leading-[1.7] md:leading-[1.75]">{item.description}</p>
               </div>
             </div>
           ))}
