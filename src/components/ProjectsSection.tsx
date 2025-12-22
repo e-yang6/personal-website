@@ -13,7 +13,7 @@ export const ProjectsSection = () => {
   const projects: Project[] = [
     {
       title: "QuantiFi",
-      description: "Third place winner in UofT UTEFA QuantiFi 2025 Algorithmic Trading Competition. Quantitative trading strategy that uses statistical analysis, backtesting, and risk management techniques.",
+      description: "Third place winner in UofT UTEFA QuantiFi 2025 algorithmic trading competition. Quantitative trading strategy that uses statistical analysis, backtesting, and risk management techniques.",
       technologies: ["Python"],
       githubUrl: "https://github.com/e-yang6/quantifi",
     },
