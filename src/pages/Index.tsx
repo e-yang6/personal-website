@@ -32,8 +32,13 @@ const Index = () => {
           </div>
           
           {/* Footer Credit */}
-          <div className="mt-12 pt-6 border-t border-border/30 text-center text-xs text-muted-foreground/70">
-            <p>Favicon by <a href="https://jeremyliu.vercel.app" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/80 hover:text-muted-foreground hover:underline transition-colors">Jeremy Liu</a></p>
+          <div className="mt-12 pt-6 border-t border-border/30 text-center space-y-3">
+            <p className="text-sm text-muted-foreground italic">
+              "Nothing worth having comes easy" - Theodore Roosevelt
+            </p>
+            <p className="text-xs text-muted-foreground/70">
+              Favicon by <a href="https://jeremyliu.vercel.app" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/80 hover:text-muted-foreground hover:underline transition-colors">Jeremy Liu</a>
+            </p>
           </div>
         </div>
       </div>

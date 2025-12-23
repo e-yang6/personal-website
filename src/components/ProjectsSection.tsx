@@ -1,5 +1,14 @@
-import { ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { ChevronRight, Github } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 interface Project {
   title: string;
@@ -7,9 +16,12 @@ interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  imageUrl?: string;
 }
 
 export const ProjectsSection = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   const projects: Project[] = [
     {
       title: "QuantiFi",
@@ -46,7 +58,10 @@ export const ProjectsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projects.map((project, index) => (
             <div key={index} className="relative min-h-[14rem]">
-              <div className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3 transition-all duration-200 hover:shadow-md hover:scale-[1.02] cursor-pointer">
+              <div 
+                className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3 transition-all duration-200 hover:shadow-md hover:scale-[1.02] cursor-pointer"
+                onClick={() => setSelectedProject(project)}
+              >
                 <GlowingEffect
                   spread={40}
                   glow={true}
@@ -62,17 +77,9 @@ export const ProjectsSection = () => {
                         <h3 className="pt-0.5 text-xl leading-[1.375rem] font-semibold font-sans tracking-[-0.04em] md:text-2xl md:leading-[1.875rem] text-balance text-foreground flex-1">
                           {project.title}
                         </h3>
-                        {(project.githubUrl || project.liveUrl) && (
-                          <a
-                            href={project.liveUrl || project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        )}
+                        <div className="text-muted-foreground/60 flex-shrink-0">
+                          <ChevronRight className="w-4 h-4" />
+                        </div>
                       </div>
                       <p className="font-sans text-base leading-[1.6] md:text-[15px] md:leading-[1.7] text-muted-foreground">
                         {project.description}
@@ -88,6 +95,67 @@ export const ProjectsSection = () => {
           ))}
         </div>
       </div>
+
+      <Dialog open={selectedProject !== null} onOpenChange={(open) => !open && setSelectedProject(null)}>
+        <DialogContent className="max-w-2xl">
+          <DialogHeader>
+            <DialogTitle className="text-2xl">{selectedProject?.title}</DialogTitle>
+            <DialogDescription className="text-base pt-2">
+              {selectedProject?.description}
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4">
+            {selectedProject?.imageUrl && (
+              <div className="w-full h-64 rounded-lg overflow-hidden border border-border bg-muted">
+                <img 
+                  src={selectedProject.imageUrl} 
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            
+            {!selectedProject?.imageUrl && (
+              <div className="w-full h-64 rounded-lg border border-border bg-muted flex items-center justify-center">
+                <p className="text-muted-foreground text-sm">No image available</p>
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-2">
+              {selectedProject?.technologies.map((tech, idx) => (
+                <span 
+                  key={idx}
+                  className="px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            {selectedProject?.githubUrl && (
+              <div className="pt-2">
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span>View on GitHub</span>
+                  </a>
+                </Button>
+              </div>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
