@@ -1,7 +1,11 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
-export const SidebarTabs = () => {
+interface SidebarTabsProps {
+  showIntro?: boolean;
+}
+
+export const SidebarTabs = ({ showIntro = false }: SidebarTabsProps) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -26,7 +30,10 @@ export const SidebarTabs = () => {
   };
 
   return (
-    <div className="fixed left-0 top-0 h-full w-32 md:w-40 z-30 pointer-events-auto">
+    <div className={cn(
+      "fixed left-0 top-0 h-full w-32 md:w-40 z-30",
+      showIntro ? "pointer-events-none" : "pointer-events-auto"
+    )}>
       <div className="h-full flex flex-col items-start py-8 px-6 gap-6">
         {tabs.map((tab) => {
           const active = isActive(tab.path);
@@ -34,9 +41,11 @@ export const SidebarTabs = () => {
           return (
             <button
               key={tab.id}
-              onClick={() => navigate(tab.path)}
+              onClick={() => !showIntro && navigate(tab.path)}
+              disabled={showIntro}
               className={cn(
                 "text-left transition-all duration-300 ease-in-out",
+                showIntro && "cursor-not-allowed opacity-50",
                 active
                   ? "text-foreground font-medium"
                   : "text-muted-foreground hover:text-foreground"

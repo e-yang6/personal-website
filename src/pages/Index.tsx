@@ -20,7 +20,7 @@ const Index = ({ showIntro = false }: IndexProps) => {
         showIntro ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      <SidebarTabs />
+      <SidebarTabs showIntro={showIntro} />
       {/* Theme Switcher - Fixed Top Right */}
       <div className="fixed top-4 right-4 z-20 pointer-events-auto">
         <ThemeSwitcher />

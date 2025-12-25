@@ -1,10 +1,14 @@
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { SidebarTabs } from "@/components/SidebarTabs";
 
-const Blog = () => {
+interface BlogProps {
+  showIntro?: boolean;
+}
+
+const Blog = ({ showIntro = false }: BlogProps) => {
   return (
     <>
-      <SidebarTabs />
+      <SidebarTabs showIntro={showIntro} />
       {/* Theme Switcher - Fixed Top Right */}
       <div className="fixed top-4 right-4 z-20 pointer-events-auto">
         <ThemeSwitcher />

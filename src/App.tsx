@@ -43,7 +43,7 @@ const AppContent = ({ showIntro, setShowIntro }: { showIntro: boolean; setShowIn
         >
           <Routes location={displayLocation}>
             <Route path="/" element={<Index showIntro={showIntro} />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog" element={<Blog showIntro={showIntro} />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
