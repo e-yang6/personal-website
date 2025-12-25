@@ -5,17 +5,19 @@ import { ReachOutSection } from "@/components/ReachOutSection";
 import { ContactSection } from "@/components/ContactSection";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { SidebarTabs } from "@/components/SidebarTabs";
 
 const Index = () => {
   return (
     <AuroraBackground className="min-h-screen overflow-y-auto">
-      {/* Theme Switcher - Fixed Top Left */}
-      <div className="fixed top-4 left-4 z-20 pointer-events-auto">
+      <SidebarTabs />
+      {/* Theme Switcher - Fixed Top Right */}
+      <div className="fixed top-4 right-4 z-20 pointer-events-auto">
         <ThemeSwitcher />
       </div>
       
       {/* Content Layer */}
-      <div className="relative z-10 min-h-screen w-full">
+      <div className="relative z-10 min-h-screen w-full pl-32 md:pl-40 animate-fade-in">
         <div className="max-w-5xl mx-auto px-6 py-12">
           <ProfileHeader
             name="Ethan Yang"
