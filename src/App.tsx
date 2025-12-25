@@ -34,21 +34,21 @@ const AppContent = ({ showIntro, setShowIntro }: { showIntro: boolean; setShowIn
   return (
     <>
       <Favicon />
-      <AuroraBackground className="min-h-screen overflow-y-auto">
-        <div
-          className={cn(
-            "transition-opacity duration-300 ease-in-out",
-            transitionStage === "entering" ? "opacity-0" : "opacity-100"
-          )}
-        >
+      <div
+        className={cn(
+          "transition-opacity duration-300 ease-in-out",
+          transitionStage === "entering" ? "opacity-0" : "opacity-100"
+        )}
+      >
+        <AuroraBackground className="min-h-screen overflow-y-auto">
           <Routes location={displayLocation}>
             <Route path="/" element={<Index showIntro={showIntro} />} />
             <Route path="/blog" element={<Blog showIntro={showIntro} />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </div>
-      </AuroraBackground>
+        </AuroraBackground>
+      </div>
       {showIntro && <IntroScreen onComplete={() => setShowIntro(false)} />}
     </>
   );
