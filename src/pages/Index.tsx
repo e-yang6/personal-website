@@ -4,13 +4,22 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { ReachOutSection } from "@/components/ReachOutSection";
 import { ContactSection } from "@/components/ContactSection";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { SidebarTabs } from "@/components/SidebarTabs";
 import { WebRing } from "@/components/WebRing";
+import { cn } from "@/lib/utils";
 
-const Index = () => {
+interface IndexProps {
+  showIntro?: boolean;
+}
+
+const Index = ({ showIntro = false }: IndexProps) => {
   return (
-    <AuroraBackground className="min-h-screen overflow-y-auto">
+    <div
+      className={cn(
+        "transition-opacity duration-500",
+        showIntro ? "opacity-0 pointer-events-none" : "opacity-100"
+      )}
+    >
       <SidebarTabs />
       {/* Theme Switcher - Fixed Top Right */}
       <div className="fixed top-4 right-4 z-20 pointer-events-auto">
@@ -18,7 +27,7 @@ const Index = () => {
       </div>
       
       {/* Content Layer */}
-      <div className="relative z-10 min-h-screen w-full pl-32 md:pl-40 animate-fade-in">
+      <div className="relative z-10 min-h-screen w-full pl-32 md:pl-40">
         <div className="max-w-5xl mx-auto px-6 py-12">
           <ProfileHeader
             name="Ethan Yang"
@@ -43,12 +52,12 @@ const Index = () => {
               "Nothing worth having comes easy" - Theodore Roosevelt
             </p>
             <p className="text-xs text-muted-foreground/70">
-              Favicon by <a href="https://jeremyliu.vercel.app" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/80 hover:text-muted-foreground hover:underline transition-colors">Jeremy Liu</a>
+              Favicon and intro graffiti by <a href="https://jeremyliu.vercel.app" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/80 hover:text-muted-foreground hover:underline transition-colors">Jeremy Liu</a>
             </p>
           </div>
         </div>
       </div>
-    </AuroraBackground>
+    </div>
   );
 };
 
