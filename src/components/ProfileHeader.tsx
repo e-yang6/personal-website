@@ -5,7 +5,7 @@ import {
   Dialog,
   DialogContent,
 } from "@/components/ui/dialog";
-import { Mail, Github, Linkedin, Download } from "lucide-react";
+import { Mail, Github, Linkedin, Download, ZoomIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ProfileHeaderProps {
@@ -47,7 +47,7 @@ export const ProfileHeader = ({ name, title, subtitle, imageUrl }: ProfileHeader
       <div className="flex items-start justify-start gap-6 mb-12">
         <div className="relative flex-shrink-0">
           <div 
-            className="relative w-32 h-32 md:w-36 md:h-36 rounded-full border-[0.75px] border-border p-1.5 cursor-pointer hover:opacity-90 transition-opacity"
+            className="relative w-32 h-32 md:w-36 md:h-36 rounded-full border-[0.75px] border-border p-1.5 cursor-pointer group"
             onClick={() => imageUrl && setIsImageEnlarged(true)}
           >
             <GlowingEffect
@@ -59,9 +59,12 @@ export const ProfileHeader = ({ name, title, subtitle, imageUrl }: ProfileHeader
               borderWidth={3}
             />
             <Avatar className="relative w-full h-full border-[0.75px] border-border overflow-hidden z-10 rounded-full">
-              {imageUrl && <AvatarImage src={imageUrl} alt={displayName} />}
+              {imageUrl && <AvatarImage src={imageUrl} alt={displayName} className="transition-opacity group-hover:opacity-70" draggable={false} />}
               <AvatarFallback className="bg-secondary text-2xl md:text-3xl">{initials}</AvatarFallback>
             </Avatar>
+            <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <ZoomIn className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
+            </div>
           </div>
         </div>
         <div className="text-left flex-1">
@@ -146,6 +149,7 @@ export const ProfileHeader = ({ name, title, subtitle, imageUrl }: ProfileHeader
               src={imageUrl} 
               alt={displayName}
               className="max-w-full max-h-[85vh] object-contain rounded-lg"
+              draggable={false}
             />
           </div>
         </DialogContent>

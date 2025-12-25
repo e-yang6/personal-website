@@ -6,6 +6,7 @@ import { ContactSection } from "@/components/ContactSection";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { SidebarTabs } from "@/components/SidebarTabs";
+import { WebRing } from "@/components/WebRing";
 
 const Index = () => {
   return (
@@ -34,7 +35,10 @@ const Index = () => {
           </div>
           
           {/* Footer Credit */}
-          <div className="mt-12 pt-6 border-t border-border/30 text-center space-y-3">
+          <div className="mt-12 pt-6 border-t border-border/30 text-center space-y-4">
+            <div className="flex justify-center">
+              <WebRing />
+            </div>
             <p className="text-sm text-muted-foreground italic">
               "Nothing worth having comes easy" - Theodore Roosevelt
             </p>
