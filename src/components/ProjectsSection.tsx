@@ -18,6 +18,7 @@ interface Project {
   liveUrl?: string;
   imageUrl?: string;
   imageUrls?: string[];
+  fullWidth?: boolean;
 }
 
 export const ProjectsSection = () => {
@@ -27,6 +28,12 @@ export const ProjectsSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects: Project[] = [
+    {
+      title: "tailwind (NOT the css framework)",
+      description: "A Valorant companion tool for viewing player info and auto-locking agents. Features include viewing all players in pre-game, seeing which side you're on, and auto-locking agents instantly.",
+      technologies: ["Python", "tkinter", "Valorant API"],
+      githubUrl: "https://github.com/e-yang6/tailwind",
+    },
     {
       title: "QuantiFi",
       description: "Third place winner in UofT UTEFA QuantiFi 2025 algorithmic trading competition. Quantitative trading strategy that uses statistical analysis, backtesting, and risk management techniques.",
@@ -54,6 +61,7 @@ export const ProjectsSection = () => {
       technologies: ["C++", "Python", "NumPy", "Matplotlib"],
       githubUrl: "https://github.com/e-yang6/MonteCarloSimulation",
       imageUrls: ["/stock-simulation-1.png", "/stock-simulation-2.png"],
+      fullWidth: true,
     },
   ];
 
@@ -65,7 +73,7 @@ export const ProjectsSection = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projects.map((project, index) => (
-            <div key={index} className="relative min-h-[14rem]">
+            <div key={index} className={`relative min-h-[14rem] ${project.fullWidth ? 'md:col-span-2' : ''}`}>
               <div 
                 className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3 transition-all duration-200 hover:shadow-md hover:scale-[1.02] cursor-pointer"
                 onClick={() => setSelectedProject(project)}
