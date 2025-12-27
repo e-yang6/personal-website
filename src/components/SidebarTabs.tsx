@@ -20,13 +20,31 @@ export const SidebarTabs = ({ showIntro = false }: SidebarTabsProps) => {
       label: "Blog",
       path: "/blog",
     },
+    {
+      id: "chatbox",
+      label: "Chatbox",
+      url: "https://my.cbox.ws/ethanyangdev",
+    },
   ];
 
-  const isActive = (path: string) => {
+  const isActive = (path?: string) => {
+    if (!path) return false;
     if (path === "/") {
       return location.pathname === "/";
     }
     return location.pathname.startsWith(path);
+  };
+
+  const handleTabClick = (tab: typeof tabs[0]) => {
+    if (showIntro) return;
+    
+    if (tab.url) {
+      // Open popup for external links
+      window.open(tab.url, "chatbox", "width=800,height=600,scrollbars=yes,resizable=yes");
+    } else if (tab.path) {
+      // Navigate for internal paths
+      navigate(tab.path);
+    }
   };
 
   return (
@@ -41,7 +59,7 @@ export const SidebarTabs = ({ showIntro = false }: SidebarTabsProps) => {
           return (
             <button
               key={tab.id}
-              onClick={() => !showIntro && navigate(tab.path)}
+              onClick={() => handleTabClick(tab)}
               disabled={showIntro}
               className={cn(
                 "text-left transition-all duration-300 ease-in-out",
