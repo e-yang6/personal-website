@@ -57,6 +57,19 @@ const AppContent = ({ showIntro, setShowIntro }: { showIntro: boolean; setShowIn
 const App = () => {
   const [showIntro, setShowIntro] = useState(true);
 
+  // Prevent scrolling when intro is visible
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    // Cleanup: restore scroll on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showIntro]);
+
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <QueryClientProvider client={queryClient}>
