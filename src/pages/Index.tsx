@@ -52,7 +52,7 @@ const Index = ({ showIntro = false }: IndexProps) => {
               "Nothing worth having comes easy" - Theodore Roosevelt
             </p>
             <p className="text-xs text-muted-foreground/70">
-              Favicon and intro graffiti by <a href="https://jeremy-space.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/80 hover:text-muted-foreground hover:underline transition-colors">Jeremy Liu</a>
+              Favicon and intro graffiti by <a href="https://j-space.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground/80 hover:text-muted-foreground hover:underline transition-colors">Jeremy Liu</a>
             </p>
           </div>
         </div>
