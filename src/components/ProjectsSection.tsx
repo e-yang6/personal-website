@@ -33,7 +33,7 @@ export const ProjectsSection = () => {
       description: "A Clash Royale themed social deduction game built around bluffing, clues, and deception. A party game where you try to catch the Chameleon hiding among Clash Royale cards.",
       technologies: ["React", "TypeScript"],
       githubUrl: "https://github.com/e-yang6/chameleon-royale",
-      liveUrl: "https://chameleon-royale.vercel.app",
+      liveUrl: "https://chameleon-royale.vercel.app/",
     },
     {
       title: "tailwind (NOT the css framework)",
@@ -53,6 +53,7 @@ export const ProjectsSection = () => {
       description: "GoOnHacks 2025 finalist. Computer vision accountability app that detects bad habits and intervenes with screen alerts, countdown timers, and math challenges.",
       technologies: ["React", "TypeScript", "Python", "Flask", "OpenCV"],
       githubUrl: "https://github.com/e-yang6/stop-dont-go-on",
+      liveUrl: "https://stop-dont-go-on.vercel.app/",
       imageUrl: "/stop-dont-go-on.gif",
     },
     {
@@ -220,7 +221,7 @@ export const ProjectsSection = () => {
                     className="flex items-center gap-2"
                   >
                     <ExternalLink className="w-4 h-4" />
-                    <span>Live Demo</span>
+                    <span>Visit Website</span>
                   </a>
                 </Button>
               )}
