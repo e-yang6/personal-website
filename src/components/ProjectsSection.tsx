@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronRight, Github, ZoomIn, ChevronLeft } from "lucide-react";
+import { ChevronRight, Github, ZoomIn, ChevronLeft, ExternalLink } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import {
   Dialog,
@@ -29,9 +29,16 @@ export const ProjectsSection = () => {
 
   const projects: Project[] = [
     {
+      title: "Chameleon Royale",
+      description: "A Clash Royale themed social deduction game built around bluffing, clues, and deception. A party game where you try to catch the Chameleon hiding among Clash Royale cards.",
+      technologies: ["React", "TypeScript"],
+      githubUrl: "https://github.com/e-yang6/chameleon-royale",
+      liveUrl: "https://chameleon-royale.vercel.app",
+    },
+    {
       title: "tailwind (NOT the css framework)",
       description: "A Valorant companion tool for viewing player info and auto-locking agents. Features include viewing all players in pre-game, seeing which side you're on, and auto-locking agents instantly.",
-      technologies: ["Python", "tkinter", "Valorant API"],
+      technologies: ["Python", "tkinter"],
       githubUrl: "https://github.com/e-yang6/tailwind",
     },
     {
@@ -61,7 +68,6 @@ export const ProjectsSection = () => {
       technologies: ["C++", "Python", "NumPy", "Matplotlib"],
       githubUrl: "https://github.com/e-yang6/MonteCarloSimulation",
       imageUrls: ["/stock-simulation-1.png", "/stock-simulation-2.png"],
-      fullWidth: true,
     },
   ];
 
@@ -181,8 +187,8 @@ export const ProjectsSection = () => {
               ))}
             </div>
 
-            {selectedProject?.githubUrl && (
-              <div className="pt-2">
+            <div className="pt-2 flex gap-2">
+              {selectedProject?.githubUrl && (
                 <Button
                   asChild
                   variant="ghost"
@@ -199,8 +205,26 @@ export const ProjectsSection = () => {
                     <span>View on GitHub</span>
                   </a>
                 </Button>
-              </div>
-            )}
+              )}
+              {selectedProject?.liveUrl && (
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    <span>Live Demo</span>
+                  </a>
+                </Button>
+              )}
+            </div>
           </div>
         </DialogContent>
       </Dialog>
