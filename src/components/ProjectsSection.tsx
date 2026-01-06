@@ -31,14 +31,14 @@ export const ProjectsSection = () => {
     {
       title: "Chameleon Royale",
       description: "A Clash Royale themed social deduction game built around bluffing, clues, and deception. A party game where you try to catch the Chameleon hiding among Clash Royale cards.",
-      technologies: ["React", "TypeScript"],
+      technologies: ["React", "TypeScript", "Vite", "Clash Royale API"],
       githubUrl: "https://github.com/e-yang6/chameleon-royale",
       liveUrl: "https://chameleon-royale.vercel.app/",
     },
     {
       title: "tailwind (NOT the css framework)",
       description: "A Valorant companion tool for viewing player info and auto-locking agents. Features include viewing all players in pre-game, seeing which side you're on, and auto-locking agents instantly.",
-      technologies: ["Python", "tkinter"],
+      technologies: ["Python", "Valorant API"],
       githubUrl: "https://github.com/e-yang6/tailwind",
     },
     {
@@ -51,7 +51,7 @@ export const ProjectsSection = () => {
     {
       title: "Stop! Don't Go On",
       description: "GoOnHacks 2025 finalist. Computer vision accountability app that detects bad habits and intervenes with screen alerts, countdown timers, and math challenges.",
-      technologies: ["React", "TypeScript", "Python", "Flask", "OpenCV"],
+      technologies: ["React", "Python", "Flask", "NumPy", "OpenCV", "Arduino"],
       githubUrl: "https://github.com/e-yang6/stop-dont-go-on",
       liveUrl: "https://stop-dont-go-on.vercel.app/",
       imageUrl: "/stop-dont-go-on.gif",
@@ -59,14 +59,14 @@ export const ProjectsSection = () => {
     {
       title: "binder.",
       description: "Tinder-inspired marketplace browser for Kijiji with swipe-based interface, Python scraper, and AI-powered price evaluation using Gemini API.",
-      technologies: ["TypeScript", "React", "Tailwind CSS", "Python", "Gemini API"],
+      technologies: ["React", "TypeScript", "Node.js", "Gemini API"],
       githubUrl: "https://github.com/e-yang6/binder",
       imageUrl: "/binder.gif",
     },
     {
       title: "Stock Price Simulation and Risk Analysis",
       description: "Monte Carlo simulations to model Geometric Brownian Motion and forecast stock price paths with visualization of outputs and return distributions.",
-      technologies: ["C++", "Python", "NumPy", "Matplotlib"],
+      technologies: ["C++", "Python", "Matplotlib"],
       githubUrl: "https://github.com/e-yang6/MonteCarloSimulation",
       imageUrls: ["/stock-simulation-1.png", "/stock-simulation-2.png"],
     },
