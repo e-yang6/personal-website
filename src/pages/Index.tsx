@@ -27,8 +27,8 @@ const Index = ({ showIntro = false }: IndexProps) => {
       </div>
       
       {/* Content Layer */}
-      <div className="relative z-10 min-h-screen w-full pl-32 md:pl-40">
-        <div className="max-w-5xl mx-auto px-6 py-12">
+      <div className="relative z-10 min-h-screen w-full pl-0 md:pl-32 lg:pl-40">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <ProfileHeader
             name="Ethan Yang"
             title="Bachelor of Applied Science in Computer Engineering"
@@ -36,7 +36,7 @@ const Index = ({ showIntro = false }: IndexProps) => {
             imageUrl="/profile.jpg"
           />
           
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             <AboutSection />
             <ProjectsSection />
             <ReachOutSection />
