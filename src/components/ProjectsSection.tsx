@@ -78,11 +78,11 @@ export const ProjectsSection = () => {
         <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
           <span>◆</span> Projects:
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
           {projects.map((project, index) => (
-            <div key={index} className={`relative min-h-[14rem] ${project.fullWidth ? 'md:col-span-2' : ''}`}>
+            <div key={index} className={`relative min-h-[12rem] sm:min-h-[14rem] ${project.fullWidth ? 'md:col-span-2' : ''}`}>
               <div 
-                className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3 transition-all duration-200 hover:shadow-md hover:scale-[1.02] cursor-pointer"
+                className="relative h-full rounded-[1.25rem] border-[0.75px] border-border p-2 md:rounded-[1.5rem] md:p-3 transition-all duration-200 hover:shadow-md hover:scale-[1.02] active:scale-[0.98] cursor-pointer touch-manipulation"
                 onClick={() => setSelectedProject(project)}
               >
                 <GlowingEffect
@@ -93,21 +93,21 @@ export const ProjectsSection = () => {
                   inactiveZone={0.01}
                   borderWidth={3}
                 />
-                <div className="relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl border-[0.75px] bg-background p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)] md:p-6">
-                  <div className="relative flex flex-1 flex-col justify-between gap-3">
-                    <div className="space-y-3 flex-1">
+                <div className="relative flex h-full flex-col justify-between gap-4 md:gap-6 overflow-hidden rounded-xl border-[0.75px] bg-background p-4 md:p-6 shadow-sm dark:shadow-[0px_0px_27px_0px_rgba(45,45,45,0.3)]">
+                  <div className="relative flex flex-1 flex-col justify-between gap-2 md:gap-3">
+                    <div className="space-y-2 md:space-y-3 flex-1">
                       <div className="flex items-start justify-between gap-2">
-                        <h3 className="pt-0.5 text-xl leading-[1.375rem] font-semibold font-sans tracking-[-0.04em] md:text-2xl md:leading-[1.875rem] text-balance text-foreground flex-1">
+                        <h3 className="pt-0.5 text-lg leading-[1.25rem] md:text-xl md:leading-[1.375rem] font-semibold font-sans tracking-[-0.04em] lg:text-2xl lg:leading-[1.875rem] text-balance text-foreground flex-1">
                           {project.title}
                         </h3>
                         <div className="text-muted-foreground/60 flex-shrink-0">
-                          <ChevronRight className="w-4 h-4" />
+                          <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
                         </div>
                       </div>
-                      <p className="font-sans text-base leading-[1.6] md:text-[15px] md:leading-[1.7] text-muted-foreground">
+                      <p className="font-sans text-sm leading-[1.5] md:text-base md:leading-[1.6] lg:text-[15px] lg:leading-[1.7] text-muted-foreground">
                         {project.description}
                       </p>
-                      <p className="text-sm text-muted-foreground/75">
+                      <p className="text-xs md:text-sm text-muted-foreground/75">
                         {project.technologies.join(" • ")}
                       </p>
                     </div>
@@ -120,19 +120,19 @@ export const ProjectsSection = () => {
       </div>
 
       <Dialog open={selectedProject !== null} onOpenChange={(open) => !open && setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl w-[calc(100%-2rem)] mx-4 sm:mx-auto p-4 sm:p-6 max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl">{selectedProject?.title}</DialogTitle>
-            <DialogDescription className="text-base pt-2">
+            <DialogTitle className="text-xl sm:text-2xl">{selectedProject?.title}</DialogTitle>
+            <DialogDescription className="text-sm sm:text-base pt-2">
               {selectedProject?.description}
             </DialogDescription>
           </DialogHeader>
           
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {selectedProject?.imageUrls && selectedProject.imageUrls.length > 0 ? (
               <div className="space-y-2">
                 <div 
-                  className="relative w-full h-64 rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group"
+                  className="relative w-full h-48 sm:h-64 rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group touch-manipulation"
                   onClick={(e) => {
                     e.stopPropagation();
                     setEnlargedImageUrls(selectedProject.imageUrls || []);
@@ -142,10 +142,10 @@ export const ProjectsSection = () => {
                   <img 
                     src={selectedProject.imageUrls[0]} 
                     alt={selectedProject.title}
-                    className="w-full h-full object-cover transition-opacity group-hover:opacity-90"
+                    className="w-full h-full object-cover transition-opacity group-active:opacity-90"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors">
-                    <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-active:bg-black/20 transition-colors">
+                    <ZoomIn className="w-6 h-6 sm:w-8 sm:h-8 text-white opacity-70 group-active:opacity-100 transition-opacity" />
                   </div>
                   {selectedProject.imageUrls.length > 1 && (
                     <div className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
@@ -156,7 +156,7 @@ export const ProjectsSection = () => {
               </div>
             ) : selectedProject?.imageUrl ? (
               <div 
-                className="relative w-full h-64 rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group"
+                className="relative w-full h-48 sm:h-64 rounded-lg overflow-hidden border border-border bg-muted cursor-pointer group touch-manipulation"
                 onClick={(e) => {
                   e.stopPropagation();
                   setEnlargedImageUrl(selectedProject.imageUrl || null);
@@ -165,36 +165,36 @@ export const ProjectsSection = () => {
                 <img 
                   src={selectedProject.imageUrl} 
                   alt={selectedProject.title}
-                  className="w-full h-full object-cover transition-opacity group-hover:opacity-90"
+                  className="w-full h-full object-cover transition-opacity group-active:opacity-90"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-colors">
-                  <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-active:bg-black/20 transition-colors">
+                  <ZoomIn className="w-6 h-6 sm:w-8 sm:h-8 text-white opacity-70 group-active:opacity-100 transition-opacity" />
                 </div>
               </div>
             ) : (
-              <div className="w-full h-64 rounded-lg border border-border bg-muted flex items-center justify-center">
-                <p className="text-muted-foreground text-sm">No image available</p>
+              <div className="w-full h-48 sm:h-64 rounded-lg border border-border bg-muted flex items-center justify-center">
+                <p className="text-muted-foreground text-xs sm:text-sm">No image available</p>
               </div>
             )}
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {selectedProject?.technologies.map((tech, idx) => (
                 <span 
                   key={idx}
-                  className="px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground"
+                  className="px-2.5 sm:px-3 py-1 text-xs rounded-full bg-secondary text-secondary-foreground"
                 >
                   {tech}
                 </span>
               ))}
             </div>
 
-            <div className="pt-2 flex gap-2">
+            <div className="pt-2 flex flex-col sm:flex-row gap-2">
               {selectedProject?.githubUrl && (
                 <Button
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center sm:justify-start min-h-[44px]"
                 >
                   <a
                     href={selectedProject.githubUrl}
@@ -212,7 +212,7 @@ export const ProjectsSection = () => {
                   asChild
                   variant="ghost"
                   size="sm"
-                  className="text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground w-full sm:w-auto justify-center sm:justify-start min-h-[44px]"
                 >
                   <a
                     href={selectedProject.liveUrl}
@@ -232,7 +232,7 @@ export const ProjectsSection = () => {
 
       {/* Enlarged Image Dialog - Single Image */}
       <Dialog open={enlargedImageUrl !== null && enlargedImageUrls.length === 0} onOpenChange={(open) => !open && setEnlargedImageUrl(null)}>
-        <DialogContent className="max-w-6xl w-auto max-h-[90vh] p-4 pt-12">
+        <DialogContent className="max-w-6xl w-[calc(100%-1rem)] sm:w-auto max-h-[90vh] p-2 sm:p-4 pt-8 sm:pt-12">
           <div className="flex items-center justify-center relative">
             {enlargedImageUrl && (
               <img 
@@ -247,7 +247,7 @@ export const ProjectsSection = () => {
 
       {/* Enlarged Image Dialog - Multiple Images with Navigation */}
       <Dialog open={enlargedImageUrls.length > 0} onOpenChange={(open) => !open && (setEnlargedImageUrls([]), setCurrentImageIndex(0))}>
-        <DialogContent className="max-w-6xl w-auto max-h-[90vh] p-4 pt-12">
+        <DialogContent className="max-w-6xl w-[calc(100%-1rem)] sm:w-auto max-h-[90vh] p-2 sm:p-4 pt-8 sm:pt-12">
           <div className="flex items-center justify-center relative">
             {enlargedImageUrls.length > 0 && (
               <>
@@ -256,24 +256,24 @@ export const ProjectsSection = () => {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                      className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 active:bg-black/80 text-white min-w-[44px] min-h-[44px] touch-manipulation"
                       onClick={(e) => {
                         e.stopPropagation();
                         setCurrentImageIndex((prev) => (prev === 0 ? enlargedImageUrls.length - 1 : prev - 1));
                       }}
                     >
-                      <ChevronLeft className="w-6 h-6" />
+                      <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                     </Button>
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white"
+                      className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 active:bg-black/80 text-white min-w-[44px] min-h-[44px] touch-manipulation"
                       onClick={(e) => {
                         e.stopPropagation();
                         setCurrentImageIndex((prev) => (prev === enlargedImageUrls.length - 1 ? 0 : prev + 1));
                       }}
                     >
-                      <ChevronRight className="w-6 h-6" />
+                      <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                     </Button>
                   </>
                 )}
@@ -283,7 +283,7 @@ export const ProjectsSection = () => {
                   className="max-w-full max-h-[85vh] object-contain rounded-lg"
                 />
                 {enlargedImageUrls.length > 1 && (
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-sm px-3 py-1 rounded">
+                  <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded">
                     {currentImageIndex + 1} / {enlargedImageUrls.length}
                   </div>
                 )}
