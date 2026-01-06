@@ -34,12 +34,14 @@ export const ProjectsSection = () => {
       technologies: ["React", "TypeScript", "Vite", "Clash Royale API"],
       githubUrl: "https://github.com/e-yang6/chameleon-royale",
       liveUrl: "https://chameleon-royale.vercel.app/",
+      imageUrl: "/chameleon-royale.gif",
     },
     {
       title: "tailwind (NOT the css framework)",
       description: "A Valorant companion tool for viewing player info and auto-locking agents. Features include viewing all players in pre-game, seeing which side you're on, and auto-locking agents instantly.",
       technologies: ["Python", "Valorant API"],
       githubUrl: "https://github.com/e-yang6/tailwind",
+      imageUrl: "/tailwind.png",
     },
     {
       title: "QuantiFi",
